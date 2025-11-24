@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио / Андрей Прокин</title>
+  <meta name="description"
+    content="UI/UX дизайнер с опытом работы в digital-студиях. Проектирую понятные интерфейсы, провожу UX-исследования, верстаю прототипы. Портфолио с реальными кейсами.">
+
+  <link rel="preload" href="../fonts/VelaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/VelaSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="preload" href="img/me.jpg" as="image">
+  <link rel="preload" href="img/cases/1/1.jpg" as="image">
+
+  <link rel="stylesheet" href="style/normalize.css">
+  <link rel="stylesheet" href="style/main.css">
+
+  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <a href="https://github.com/qumeqa/portfolio" target="_blank"><img class="me" src="img/me.jpg" alt="Мое фото"></a>
+    <div class="links">
+      <a class="btn l" href="https://t.me/qumeqa" target="_blank">Telegram</a>
+      <a class="btn d" href="https://dprofile.ru/qumeqa/cv" target="_blank">CV</a>
+    </div>
+  </header>
+
+  <div class="sections">
+    <a class="link" href="#cases">Кейсы</a>
+    <a class="link" href="#experience">Мой опыт</a>
+    <a class="link" href="#skills">Навыки</a>
+    <a class="link" href="#about">Обо мне</a>
+    <a class="link" href="#contacts">Контакты</a>
+  </div>
+
+  <main>
+    <div class="heading">
+      <h1 class="show">Создаю <span id="changing-word"></span><br>которые работают</h1>
+      <h1 class="hide">Дизайнер интерфейсов</h1>
+      <p>Привет! Меня зовут Андрей, свой путь я начинал с графического дизайна, а сейчас уже более года проектирую
+        интерфейсы
+      </p>
+    </div>
+
+    <div class="cases" id="cases">
+      <div class="case" data-cover="img/cases/1/1.jpg" data-company="TopUrok" data-des="Сайт для репетитора"
+        data-href="/topurok.html"></div>
+      <div class="case" data-cover="img/cases/2/1.jpg" data-company="Бодрит" data-des="Приложение для кофейни"
+        data-href="/topurok.html"></div>
+      <div class="case" data-cover="img/cases/3/1.jpg" data-company="Debian" data-des="Редизайн сайта для ОС"
+        data-href="/topurok.html"></div>
+      <div class="case" data-cover="img/cases/4/1.jpg" data-company="VIVALUME" data-des="Сайт для арт-журнала"
+        data-href="/topurok.html"></div>
+    </div>
+
+    <div class="block" id="experience">
+      <h2>Мой опыт</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="number"></div>
+          <div class="info">
+            <h3>Freelance, Графический дизайнер</h3>
+            <p>
+              Работал с малым бизнесом и стартапами: создавал айдентику, визуалы для соцсетей, презентации и печатную
+              продукцию. Научился работать с клиентами и укладываться в сроки
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number"></div>
+          <div class="info">
+            <h3>Атвинта, UI/UX дизайнер (стажер)</h3>
+            <p>
+              Погружался в продуктовый дизайн: участвовал в проектировании интерфейсов, собирал референсы, создавал
+              UI-киты. Понял, как работают процессы в digital-студии и командная работа
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="number"></div>
+          <div class="info">
+            <h3>Waynut, UI/UX дизайнер</h3>
+            <p>Проектировал интерфейсы для сайтов и приложений, проводил UX-исследования, создавал прототипы.
+              Также верстал landing page и делал графику для соцсетей клиентов
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="skills">
+      <h2>Навыки</h2>
+      <div class="skills">
+        <div class="skill">
+          <p>UI-дизайн</p>
+        </div>
+        <div class="skill">
+          <p>Продуктовый подход</p>
+        </div>
+        <div class="skill">
+          <p>Адаптивный дизайн</p>
+        </div>
+        <div class="skill">
+          <p>UX-исследования</p>
+        </div>
+        <div class="skill">
+          <p>Графический дизайн</p>
+        </div>
+        <div class="skill">
+          <p>Прототипирование</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="block" id="about">
+      <h2>Обо мне</h2>
+      <div class="text-c">
+        <p>
+          Фокусируюсь на понятных интерфейсах и аккуратной типографике<br><br>
+          В свободное время люблю слушать музыку и разрабатывать собственные шрифты — это помогает тоньше чувствовать
+          ритм, иерархию и читаемость в цифровых продуктах, да и сам процесс мне очень нравится<br><br>
+          Ссылка на мой последний шрифт прилагается (бесплатен для любого типа использования)
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer id="contacts">
+    <h1>Я открыт к новым предложениям</h1>
+    <div class="links">
+      <a class="btn d" href="https://t.me/qumeqa" target="_blank">Telegram</a>
+      <a class="btn l" href="mailto:turbocapybara@gmail.com" target="_blank">Email</a>
+    </div>
+    <a href="https://github.com/qumeqa/portfolio" target="_blank"><img src="img/footer.jpg" alt="Алтай"></a>
+  </footer>
+  <script src="js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script>
+    new Typed('#changing-word', {
+      strings: ['интерфейсы', 'продукты', 'приложения', 'сервисы'],
+      typeSpeed: 50,
+      backSpeed: 50,
+      backDelay: 1500,
+      loop: true,
+      showCursor: false,
+      smartBackspace: false
+    });
+  </script>
+</body>
+
+</html>

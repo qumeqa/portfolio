@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио</title>
+  <meta name="description" content="">
+
+  <link rel=" preload" href="fonts/VelaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel=" preload" href="fonts/VelaSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="preload" href="img/2.png" as="image">
+
+  <link rel="stylesheet" href="style/normalize.css">
+  <link rel="stylesheet" href="style/main.css">
+
+  <link rel="shortcut icon" href="img/icon.svg" type="image/x-icon">
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedCase = sessionStorage.getItem('activeCase');
+      if (savedCase) {
+        document.documentElement.setAttribute('data-active-case', savedCase);
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <a href="/">Андрей Прокин</a>
+    <div class="links c">
+      <a href="#">Кейсы</a>
+      <a href="#">Обо мне</a>
+      <a href="#">Контакты</a>
+    </div>
+    <div class="links">
+      <a href="#">Telegram</a>
+      <a href="#">CV</a>
+    </div>
+  </header>
+
+  <main>
+    <div style="height: 4000px;"></div>
+  </main>
+
+  <footer>
+
+  </footer>
+</body>
+
+</html>
