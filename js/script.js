@@ -10,15 +10,12 @@ document.querySelectorAll('.case').forEach(caseItem => {
       </div>
     </a>
     <div class="case-d">
-      <p>${company}</p>
+      <a href="${href}">
+        <h3>${company}</h3>
+      </a>
       <p class="g">${des}</p>
     </div>`;
 });
-
-
-
-
-
 
 // Функция для обновления активного пункта меню
 function updateActiveSection() {

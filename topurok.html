@@ -4,50 +4,156 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Портфолио</title>
-  <meta name="description" content="">
+  <title>TopUrok</title>
 
-  <link rel=" preload" href="fonts/VelaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel=" preload" href="fonts/VelaSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/VelaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/VelaSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="preload" href="img/2.png" as="image">
+  <link rel="preload" href="img/cases/1/2.jpg" as="image">
 
   <link rel="stylesheet" href="style/normalize.css">
   <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/photoswipe.min.css">
 
-  <link rel="shortcut icon" href="img/icon.svg" type="image/x-icon">
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedCase = sessionStorage.getItem('activeCase');
-      if (savedCase) {
-        document.documentElement.setAttribute('data-active-case', savedCase);
-      }
-    });
-  </script>
+  <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 </head>
 
 <body>
   <header>
-    <a href="/">Андрей Прокин</a>
-    <div class="links c">
-      <a href="#">Кейсы</a>
-      <a href="#">Обо мне</a>
-      <a href="#">Контакты</a>
-    </div>
-    <div class="links">
-      <a href="#">Telegram</a>
-      <a href="#">CV</a>
-    </div>
+    <a class="btn l" href="/main">На главную</a>
   </header>
 
   <main>
-    <div style="height: 4000px;"></div>
+    <div class="case-block">
+
+      <div class="case-text">
+        <h1>TopUrok</h1>
+        <p>
+          Была задача создать сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+      </div>
+
+    </div>
+
+    <div class="case-block">
+      <a href="img/cases/1/2.png" class="lightbox" data-pswp-width="900" data-pswp-height="675">
+        <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
+      </a>
+      <div class="case-text">
+        <h2>Название</h2>
+        <p>
+          Была задача создать сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+      </div>
+    </div>
+
+    <div class="case-block">
+      <a href="img/cases/1/2.png" class="lightbox" data-pswp-width="900" data-pswp-height="675">
+        <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
+      </a>
+      <div class="case-text">
+        <!-- <h2>Название</h2> -->
+        <p>
+          Была задача создать сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+      </div>
+    </div>
+
+    <div class="case-cases">
+      <h2>Другие кейсы</h2>
+      <div class="cases-grid" id="cases">
+        <div class="case" data-cover="img/cases/1/1.jpg" data-company="TopUrok" data-href="/topurok.html"></div>
+        <div class="case" data-cover="img/cases/2/1.jpg" data-company="Бодрит" data-href="/topurok.html"></div>
+      </div>
+    </div>
   </main>
 
-  <footer>
-
+  <footer id="contacts">
+    <h1>Я открыт к новым предложениям</h1>
+    <div class="links">
+      <a class="btn d" href="https://t.me/qumeqa" target="_blank">Telegram</a>
+      <a class="btn l" href="mailto:turbocapybara@gmail.com" target="_blank">Email</a>
+    </div>
+    <a href="https://github.com/qumeqa/portfolio" target="_blank">
+      <picture>
+        <source media="(max-width: 768px)" srcset="img/footer-s.svg">
+        <img src="img/footer.svg" alt="Фон">
+      </picture>
+    </a>
   </footer>
+
+  <a class="btn d top" id="scrollToTop">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M11.3693 7.2251C11.762 6.90475 12.341 6.92734 12.7072 7.29346L19.7072 14.2935L18.2931 15.7075L12.0001 9.41455L5.70715 15.7075L4.29309 14.2935L11.2931 7.29346L11.3693 7.2251Z"
+        fill="var(--bg-l)" />
+    </svg>
+  </a>
+
+  <script>
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+
+    // Показываем кнопку при скролле
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        scrollToTopBtn.classList.add('visible');
+      } else {
+        scrollToTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Скролл вверх при клике
+    scrollToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    document.querySelectorAll('.case').forEach(caseItem => {
+      const cover = caseItem.dataset.cover;
+      const company = caseItem.dataset.company;
+      const des = caseItem.dataset.des;
+      const href = caseItem.dataset.href;
+      caseItem.innerHTML = `
+    <a href="${href}">
+      <div class="img">
+        <img src="${cover}" alt="Сайт">
+      </div>
+    </a>
+    <div class="case-d">
+      <a href="${href}">
+        <h3>${company}</h3>
+      </a>
+    </div>`;
+    });
+  </script>
+  <script type="module">
+    import PhotoSwipeLightbox from './js/photoswipe-lightbox.esm.min.js';
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: 'main', // Изменено с '#gallery' на 'main'
+      children: 'a.lightbox', // Только ссылки с атрибутом data-pswp-width
+      showHideAnimationType: 'zoom',
+      wheelToZoom: true,
+      mouseMovePan: true,
+      padding: { top: 16, bottom: 16, left: 16, right: 16 },
+      pswpModule: () => import('./js/photoswipe.esm.min.js')
+    });
+
+    lightbox.on('afterInit', () => {
+      const closeBtn = document.querySelector('.pswp__button--close');
+      if (closeBtn) {
+        closeBtn.removeAttribute('aria-label');
+        closeBtn.removeAttribute('title');
+      }
+    });
+
+    lightbox.init();
+  </script>
 </body>
 
 </html>

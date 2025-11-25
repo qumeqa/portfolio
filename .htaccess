@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Перенаправление с /index.html на корень
+RewriteCond %{THE_REQUEST} /index(\.html)?[\s?] [NC]
+RewriteRule ^ / [R=301,L]
+
+# Удаление .html из URL
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Обработка .html файлов, если они не являются директориями
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*?)/?$ $1.html [L]
+
+# Перенаправление на index.html при обращении к корню
+RewriteRule ^$ index.html [L]
