@@ -40,7 +40,7 @@
   <main>
     <div class="heading">
       <h1 class="show">Создаю <span id="changing-word"></span><br>которые работают</h1>
-      <h1 class="hide">Дизайнер интерфейсов</h1>
+      <h1 class="hide t">Проектирую рабочие<br><span id="changing-words"></span></h1>
       <p>Привет! Меня зовут Андрей, свой путь я начинал с графического дизайна, а сейчас уже более года проектирую
         интерфейсы
       </p>
@@ -132,7 +132,8 @@
   </main>
 
   <footer id="contacts">
-    <h1>Я открыт к новым предложениям</h1>
+    <h1 class="show">Открыт для новых предложений</h1>
+    <h1 class="hide">Свяжитесь<br>со мной</h1>
     <div class="links">
       <a class="btn d" href="https://t.me/qumeqa" target="_blank">Telegram</a>
       <a class="btn l" href="mailto:turbocapybara@gmail.com" target="_blank">Email</a>
@@ -148,6 +149,16 @@
   <script src="js/typed.min.js"></script>
   <script>
     new Typed('#changing-word', {
+      strings: ['интерфейсы', 'продукты', 'приложения', 'сервисы'],
+      typeSpeed: 50,
+      backSpeed: 50,
+      backDelay: 1500,
+      loop: true,
+      showCursor: false,
+      smartBackspace: false
+    });
+
+    new Typed('#changing-words', {
       strings: ['интерфейсы', 'продукты', 'приложения', 'сервисы'],
       typeSpeed: 50,
       backSpeed: 50,

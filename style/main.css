@@ -11,7 +11,7 @@
   font-family: Vela Sans;
   src: url('../fonts/VelaSans-SemiBold.woff2') format('woff2'),
     url('../fonts/VelaSans-SemiBold.woff') format('woff');
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -100,24 +100,26 @@ h2,
 h3 {
   color: var(--text-d);
   font-family: Vela Sans, sans-serif;
-  font-weight: 500;
   font-style: normal;
 }
 
 h1 {
   font-size: 4rem;
+  font-weight: 600;
   line-height: 0.9;
   letter-spacing: -0.06em;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.05em;
 }
 
 h3 {
   font-size: 1.5rem;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.04em;
 }
@@ -155,7 +157,7 @@ header {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: var(--20);
+  gap: var(--15);
   padding: var(--25) var(--30);
   corner-shape: var(--super);
   border-radius: var(--20);
@@ -166,14 +168,13 @@ header {
   position: relative;
   transition: var(--tr);
 
-  &::before {
+  &::after {
     content: '';
     position: absolute;
-    top: var(--10);
-    left: var(--15);
-    right: var(--15);
-    bottom: var(--10);
-    z-index: -1;
+    top: -0.625rem;
+    left: -0.9375rem;
+    right: -0.9375rem;
+    bottom: -0.625rem;
   }
 }
 
@@ -191,6 +192,13 @@ header {
 
 #about {
   scroll-margin-top: 22.5rem;
+}
+
+#problem,
+#research,
+#solution,
+#results {
+  scroll-margin-top: 7.5rem;
 }
 
 main {
@@ -246,9 +254,13 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--20);
+}
 
-  .hide {
-    display: none;
+.hide {
+  display: none;
+
+  &.t {
+    height: calc(0.9em * 3);
   }
 }
 
@@ -529,18 +541,23 @@ footer {
     padding-top: 5.625rem;
   }
 
+  #problem,
+  #research,
+  #solution,
+  #results {
+    scroll-margin-top: 6.25rem;
+  }
+
   .me {
     width: 6.25rem;
   }
 
-  .heading {
-    .show {
-      display: none;
-    }
+  .show {
+    display: none;
+  }
 
-    .hide {
-      display: block;
-    }
+  .hide {
+    display: block;
   }
 
   .cases {

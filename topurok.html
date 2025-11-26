@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TopUrok</title>
+  <title>Портфолио / TopUrok</title>
 
   <link rel="preload" href="../fonts/VelaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/VelaSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
 
-  <link rel="preload" href="img/cases/1/2.jpg" as="image">
+  <link rel="preload" href="img/cases/1/2.png" as="image">
 
   <link rel="stylesheet" href="style/normalize.css">
   <link rel="stylesheet" href="style/main.css">
@@ -23,40 +23,74 @@
     <a class="btn l" href="/main">На главную</a>
   </header>
 
+  <div class="sections">
+    <a class="link" href="#problem">Проблема</a>
+    <a class="link" href="#research">Анализ</a>
+    <a class="link" href="#solution">Решение</a>
+    <a class="link" href="#results">Итоги</a>
+    <a class="link" href="#contacts">Контакты</a>
+  </div>
+
   <main>
     <div class="case-block">
 
       <div class="case-text">
         <h1>TopUrok</h1>
         <p>
-          Была задача создать сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
           Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
         </p>
       </div>
 
     </div>
 
-    <div class="case-block">
+    <div class="case-block" id="problem">
       <a href="img/cases/1/2.png" class="lightbox" data-pswp-width="900" data-pswp-height="675">
         <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
       </a>
       <div class="case-text">
-        <h2>Название</h2>
+        <h2>Проблема</h2>
         <p>
-          Была задача создать сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
           Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
         </p>
       </div>
     </div>
 
-    <div class="case-block">
+    <div class="case-block" id="research">
       <a href="img/cases/1/2.png" class="lightbox" data-pswp-width="900" data-pswp-height="675">
         <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
       </a>
       <div class="case-text">
-        <!-- <h2>Название</h2> -->
+        <h2>Исследование</h2>
         <p>
-          Была задача создать сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+      </div>
+    </div>
+
+    <div class="case-block" id="solution">
+      <a href="img/cases/1/2.png" class="lightbox" data-pswp-width="900" data-pswp-height="675">
+        <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
+      </a>
+      <div class="case-text">
+        <h2>Решение</h2>
+        <p>
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+      </div>
+    </div>
+
+    <div class="case-block" id="results">
+      <a href="img/cases/1/2.png" class="lightbox" data-pswp-width="900" data-pswp-height="675">
+        <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
+      </a>
+      <div class="case-text">
+        <h2>Результаты</h2>
+        <p>
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
           Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
         </p>
       </div>
@@ -72,7 +106,8 @@
   </main>
 
   <footer id="contacts">
-    <h1>Я открыт к новым предложениям</h1>
+    <h1 class="show">Открыт для новых предложений</h1>
+    <h1 class="hide">Свяжитесь<br>со мной</h1>
     <div class="links">
       <a class="btn d" href="https://t.me/qumeqa" target="_blank">Telegram</a>
       <a class="btn l" href="mailto:turbocapybara@gmail.com" target="_blank">Email</a>
@@ -130,6 +165,102 @@
       </a>
     </div>`;
     });
+
+    // Функция для обновления активного пункта меню
+    function updateActiveSection() {
+      const sections = document.querySelectorAll('main > div[id], footer[id]');
+      const menuLinks = document.querySelectorAll('.sections a');
+
+      // Получаем середину экрана
+      const middleOfScreen = window.scrollY + (window.innerHeight / 2);
+
+      let currentSection = '';
+      let foundIntersection = false;
+      let minDistance = Infinity;
+      let closestSection = '';
+
+      // Находим секцию, которая пересекает середину экрана
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionBottom = sectionTop + sectionHeight;
+        const sectionMiddle = sectionTop + (sectionHeight / 2);
+
+        // Проверяем, что середина экрана находится внутри секции
+        if (middleOfScreen >= sectionTop && middleOfScreen <= sectionBottom) {
+          currentSection = section.getAttribute('id');
+          foundIntersection = true;
+        }
+
+        // На всякий случай запоминаем ближайшую секцию
+        const distance = Math.abs(middleOfScreen - sectionMiddle);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestSection = section.getAttribute('id');
+        }
+      });
+
+      // Если ни одна секция не пересекает середину (мы в gap), используем ближайшую
+      if (!foundIntersection) {
+        currentSection = closestSection;
+      }
+
+      // Обновляем классы у ссылок меню
+      menuLinks.forEach(link => {
+        const href = link.getAttribute('href').substring(1); // Убираем # из href
+
+        if (href === currentSection) {
+          // Текущая секция - оставляем черным (без класса .g)
+          link.classList.remove('g');
+        } else {
+          // Остальные - делаем серыми
+          link.classList.add('g');
+        }
+      });
+    }
+
+    // Обработка кликов по ссылкам меню
+    const menuLinks = document.querySelectorAll('.sections a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault(); // Отменяем стандартное поведение
+
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+          // Если это контакты, скроллим в самый низ страницы
+          if (targetId === 'contacts') {
+            window.scrollTo({
+              top: document.documentElement.scrollHeight,
+              behavior: 'smooth'
+            });
+          } else {
+            // Получаем scroll-margin-top из CSS
+            const styles = window.getComputedStyle(targetSection);
+            const scrollMargin = parseFloat(styles.scrollMarginTop) || 0;
+
+            // Вычисляем позицию с учетом scroll-margin-top
+            const sectionTop = targetSection.offsetTop;
+
+            // Скроллим к началу секции минус scroll-margin
+            window.scrollTo({
+              top: sectionTop - scrollMargin,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Вызываем функцию при скролле
+    window.addEventListener('scroll', updateActiveSection);
+
+    // Вызываем функцию при загрузке страницы
+    window.addEventListener('load', updateActiveSection);
+
+    // Также вызываем сразу на случай, если страница уже загружена
+    updateActiveSection();
   </script>
   <script type="module">
     import PhotoSwipeLightbox from './js/photoswipe-lightbox.esm.min.js';
