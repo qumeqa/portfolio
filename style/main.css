@@ -1,4 +1,13 @@
 @font-face {
+  font-family: Sexmith;
+  src: url('../fonts/Sexsmith-Regular.woff2') format('woff2'),
+    url('../fonts/Sexsmith-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: Vela Sans;
   src: url('../fonts/VelaSans-Regular.woff2') format('woff2'),
     url('../fonts/VelaSans-Regular.woff') format('woff');
@@ -96,7 +105,12 @@ img {
 }
 
 h1,
-h2,
+h2 {
+  color: var(--text-d);
+  font-family: Sexmith, sans-serif;
+  font-style: normal;
+}
+
 h3 {
   color: var(--text-d);
   font-family: Vela Sans, sans-serif;
@@ -104,24 +118,24 @@ h3 {
 }
 
 h1 {
-  font-size: 4rem;
-  font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: -0.06em;
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
 }
 
 h2 {
-  font-size: 2.75rem;
-  font-weight: 600;
+  font-size: 3.5rem;
+  font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.01em;
 }
 
 h3 {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.03em;
 }
 
 body {
@@ -179,26 +193,26 @@ header {
 }
 
 #cases {
-  scroll-margin-top: 7.5rem;
+  scroll-margin-top: 20vh;
 }
 
 #experience {
-  scroll-margin-top: 15rem;
+  scroll-margin-top: 20vh;
 }
 
 #skills {
-  scroll-margin-top: 20rem;
+  scroll-margin-top: 32vh;
 }
 
 #about {
-  scroll-margin-top: 22.5rem;
+  scroll-margin-top: 35vh;
 }
 
 #problem,
 #research,
 #solution,
 #results {
-  scroll-margin-top: 7.5rem;
+  scroll-margin-top: 15vh;
 }
 
 main {
@@ -260,7 +274,7 @@ main {
   display: none;
 
   &.t {
-    height: calc(0.9em * 3);
+    height: calc(0.92em * 2);
   }
 }
 
@@ -369,7 +383,7 @@ main {
   gap: var(--25);
 
   a {
-    cursor: url('/img/cursor/zoom.svg'), auto !important;
+    cursor: url('/img/cursor/zoom.svg') 9 9, auto !important;
   }
 
   img {
@@ -442,7 +456,7 @@ main {
 }
 
 .pswp__img {
-  cursor: url('/img/cursor/close.svg'), auto !important;
+  cursor: url('/img/cursor/close.svg') 9 9, auto !important;
 }
 
 footer {
@@ -456,6 +470,11 @@ footer {
 
   .links {
     margin-bottom: 5rem;
+  }
+
+  h1 {
+    width: max-content;
+    position: relative;
   }
 }
 
@@ -525,11 +544,11 @@ footer {
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 3.75rem;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   h3 {
