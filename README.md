@@ -4,14 +4,9 @@
 
 [![Посмотреть сайт](./docs/button.svg)](http://qumeqa.me/main)
 
-
 ### Технологии
+
 - HTML5, CSS3, JavaScript
-- Typed.js для анимации заголовка
-- Кастомные шрифты (Vela Sans)
+- Typed.js для анимации заголовка, PhotoSwipe для просмотра фотографий
+- Кастомные шрифты (Vela Sans, Bruskovaya)
 - Адаптивная вёрстка
-
-
-### Контакты
-- Email: turbocapybara@gmail.com
-- Telegram: [@qumeqa](https://t.me/qumeqa)
