@@ -17,6 +17,14 @@ document.querySelectorAll('.case').forEach(caseItem => {
     </div>`;
 });
 
+// Для всех ссылок с классом .off
+document.querySelectorAll('.off').forEach(link => {
+  link.addEventListener('click', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  });
+});
+
 // Функция для обновления активного пункта меню
 function updateActiveSection() {
   const sections = document.querySelectorAll('main > div[id], footer[id]');

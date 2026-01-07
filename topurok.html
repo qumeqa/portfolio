@@ -16,6 +16,26 @@
   <link rel="stylesheet" href="style/photoswipe.min.css">
 
   <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(101693695, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/101693695" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
 </head>
 
 <body>
@@ -99,8 +119,8 @@
     <div class="case-cases">
       <h2>Другие кейсы</h2>
       <div class="cases-grid" id="cases">
-        <div class="case" data-cover="img/cases/1/1.jpg" data-company="TopUrok" data-href="/topurok.html"></div>
-        <div class="case" data-cover="img/cases/2/1.jpg" data-company="Бодрит" data-href="/topurok.html"></div>
+        <div class="case off" data-cover="img/cases/2/1.jpg" data-company="TopUrok" data-href="/topurok.html"></div>
+        <div class="case off" data-cover="img/cases/3/1.jpg" data-company="Бодрит" data-href="/topurok.html"></div>
       </div>
     </div>
   </main>
@@ -128,6 +148,14 @@
   </a>
 
   <script>
+    // Для всех ссылок с классом .off
+    document.querySelectorAll('.off').forEach(link => {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+
     const scrollToTopBtn = document.getElementById('scrollToTop');
 
     // Показываем кнопку при скролле

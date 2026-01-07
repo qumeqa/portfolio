@@ -1,7 +1,7 @@
 @font-face {
-  font-family: Sexmith;
-  src: url('../fonts/Sexsmith-Regular.woff2') format('woff2'),
-    url('../fonts/Sexsmith-Regular.woff') format('woff');
+  font-family: Bruskovaya;
+  src: url('../fonts/Bruskovaya.woff2') format('woff2'),
+    url('../fonts/Bruskovaya.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -28,7 +28,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -44,14 +44,12 @@
   --bg-gl: #f5f5f5;
 
   --btn: #f5f5f5;
-  --btn-h: #f0f0f0;
+  --btn-h: #e3e3e3;
   --btn-d: #101010;
-  --btn-dh: #202020;
+  --btn-dh: #3f6cff;
 
   --scroll-thumb: #d9d9d9;
   --scroll-track: #fff;
-
-  --accent: #4273f8;
 
   --10: 0.625rem;
   --15: 0.9375rem;
@@ -107,7 +105,7 @@ img {
 h1,
 h2 {
   color: var(--text-d);
-  font-family: Sexmith, sans-serif;
+  font-family: Bruskovaya, serif;
   font-style: normal;
 }
 
@@ -118,16 +116,16 @@ h3 {
 }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 5rem;
   font-weight: 400;
-  line-height: 0.92;
+  line-height: 0.8;
   letter-spacing: -0.01em;
 }
 
 h2 {
   font-size: 3.5rem;
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.8;
   letter-spacing: -0.01em;
 }
 
@@ -291,6 +289,16 @@ main {
 
   img {
     transition: var(--tr);
+  }
+
+  &.off {
+    a {
+      cursor: url('/img/cursor/close.svg') 9 9, auto !important;
+
+      img {
+        transition: initial;
+      }
+    }
   }
 }
 
@@ -495,6 +503,10 @@ footer {
     transform: scale(1.025);
   }
 
+  .off:has(a:hover) img {
+    transform: scale(1);
+  }
+
   .pswp__button--close:hover {
     background: var(--btn-dh) !important;
   }
@@ -515,6 +527,10 @@ footer {
 
   .case:has(a:active) img {
     transform: scale(1.025);
+  }
+
+  .off:has(a:active) img {
+    transform: scale(1);
   }
 
   .pswp__button--close:active {
@@ -544,7 +560,7 @@ footer {
   }
 
   h1 {
-    font-size: 3.75rem;
+    font-size: 4rem;
   }
 
   h2 {
@@ -580,7 +596,7 @@ footer {
   }
 
   .cases {
-    gap: 2.5rem;
+    gap: 3.5rem;
   }
 
   .number {
@@ -623,4 +639,10 @@ footer {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: clamp(3.4rem, 15vw, 4rem);
+  }
 }
