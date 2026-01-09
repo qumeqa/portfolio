@@ -2,11 +2,11 @@
 
 Полностью спроектировал и сверстал сам — от концепции в Figma до финального кода
 
-[![Посмотреть сайт](./docs/button.svg)](http://qumeqa.me/main)
+<!-- [![Посмотреть сайт](./docs/button.svg)](http://qumeqa.me/main) -->
 
 ### Технологии
 
 - HTML5, CSS3, JavaScript
 - Typed.js для анимации заголовка, PhotoSwipe для просмотра фотографий
-- Кастомные шрифты (Vela Sans, Bruskovaya)
+- Кастомные шрифты (Vela Sans, TT Bluescreens)
 - Адаптивная вёрстка
