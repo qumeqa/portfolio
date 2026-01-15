@@ -10,12 +10,15 @@
 
   <link rel="preload" href="../fonts/VelaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/VelaSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/TTBluescreensTrial-Md.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/TTBluescreensTrial-Db.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="preload" href="img/me.jpg" as="image">
   <link rel="preload" href="img/cases/1/1.jpg" as="image">
 
-  <link rel="stylesheet" href="style/normalize.css">
   <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/media.css">
 
   <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 
@@ -40,7 +43,7 @@
   </noscript>
 </head>
 
-<body>
+<body data-page="main">
   <header>
     <a href="https://github.com/qumeqa/portfolio" target="_blank"><img class="me" src="img/me.jpg" alt="Мое фото"></a>
     <div class="links">
@@ -50,7 +53,7 @@
   </header>
 
   <div class="sections">
-    <a class="link" href="#cases">Кейсы</a>
+    <a class="link" href="#cases m-scroll">Кейсы</a>
     <a class="link" href="#experience">Мой опыт</a>
     <a class="link" href="#skills">Навыки</a>
     <a class="link" href="#about">Обо мне</a>
@@ -61,21 +64,24 @@
     <div class="heading">
       <!-- <h1 class="show">Создаю <span id="changing-word"></span><br>которые работают</h1>
       <h1 class="hide t"><span id="changing-words"></span><br>которые работают</h1> -->
-      <h1>Создаю <span id="changing-word"></span><br>которые работают</h1>
-      <p>
-        Привет! Меня зовут Андрей, свой путь я начинал с графического дизайна, а сейчас уже более года проектирую
-        интерфейсы
+      <h1 class="show">Проектирую <span id="changing-word"></span><br>которые работают</h1>
+      <h1 class="hide">Создаю <span id="changing-words"></span><br>которые работают</h1>
+      <p class="show">
+        Привет! Меня зовут Андрей, я UI/UX дизайнер с опытом в графическом дизайне и фронтенде
+      </p>
+      <p class="hide">
+        Привет! Я Андрей, UI/UX дизайнер с опытом в графическом дизайне и фронтенде
       </p>
     </div>
 
     <div class="cases" id="cases">
       <div class="case" data-cover="img/cases/1/1.jpg" data-company="TopUrok" data-des="Сайт для репетитора"
         data-href="/topurok.html"></div>
-      <div class="case off" data-cover="img/cases/2/1.jpg" data-company="Бодрит" data-des="Приложение для кофейни"
+      <div class="case off" data-cover="img/cases/2/1.jpg" data-company="Точка" data-des="Приложение для кофейни"
         data-href="/topurok.html"></div>
-      <div class="case off" data-cover="img/cases/3/1.jpg" data-company="VIVALUME" data-des="Сайт для арт-журнала"
+      <div class="case off" data-cover="img/cases/3/1.jpg" data-company="VIVALUME" data-des="Сайт для фотожурнала"
         data-href="/topurok.html"></div>
-      <div class="case off" data-cover="img/cases/4/1.jpg" data-company="Debian" data-des="Редизайн сайта для ОС"
+      <div class="case off" data-cover="img/cases/4/1.jpg" data-company="Like Me" data-des="Сайт для салона красоты"
         data-href="/topurok.html"></div>
     </div>
 
@@ -85,10 +91,9 @@
         <div class="step">
           <div class="number"></div>
           <div class="info">
-            <h3>Freelance, Графический дизайнер</h3>
+            <h3>Фриланс, Графический дизайнер</h3>
             <p>
-              Работал с малым бизнесом и стартапами: создавал айдентику, визуалы для соцсетей, презентации и печатную
-              продукцию. Научился работать с клиентами и укладываться в сроки
+              Создавал айдентику, логотипы, иконки для сайтов и графику для соцсетей
             </p>
             <p class="g">2023-2025</p>
           </div>
@@ -99,8 +104,7 @@
           <div class="info">
             <h3>Атвинта, UI/UX дизайнер (стажер)</h3>
             <p>
-              Погружался в продуктовый дизайн: участвовал в проектировании интерфейсов, собирал референсы, создавал
-              UI-киты. Понял, как работают процессы в digital-студии и командная работа
+              Участвовал в проектировании интерфейсов, собирал референсы, создавал UI-киты
             </p>
             <p class="g">2025</p>
           </div>
@@ -110,8 +114,8 @@
           <div class="number"></div>
           <div class="info">
             <h3>Waynut, UI/UX дизайнер</h3>
-            <p>Проектировал интерфейсы для сайтов и приложений, проводил UX-исследования, создавал прототипы.
-              Также верстал landing page и делал графику для соцсетей клиентов
+            <p>Проектировал интерфейсы, проводил UX-исследования, верстал
+              сайты и делал графику для соцсетей
             </p>
             <p class="g">2025-2026</p>
           </div>
@@ -122,11 +126,11 @@
     <div class="block" id="skills">
       <h2>Навыки</h2>
       <div class="skills">
-        <div class="skill">
+        <div class="skill tl">
           <p>UI-дизайн</p>
         </div>
-        <div class="skill">
-          <p>Продуктовый подход</p>
+        <div class="skill tr">
+          <p>Анализ конкурентов</p>
         </div>
         <div class="skill">
           <p>Адаптивный дизайн</p>
@@ -140,6 +144,12 @@
         <div class="skill">
           <p>Прототипирование</p>
         </div>
+        <div class="skill bl">
+          <p>Создание UI-китов</p>
+        </div>
+        <div class="skill br">
+          <p>Верстка (HTML, CSS)</p>
+        </div>
       </div>
     </div>
 
@@ -147,10 +157,9 @@
       <h2>Обо мне</h2>
       <div class="text-c">
         <p>
-          Фокусируюсь на понятных интерфейсах и аккуратной типографике<br><br>
-          В свободное время люблю слушать музыку и разрабатывать собственные шрифты — это помогает тоньше чувствовать
-          ритм, иерархию и читаемость в цифровых продуктах, да и сам процесс мне очень нравится<br><br>
-          Ссылка на мой последний шрифт прилагается (бесплатен для любого типа использования)
+          В свободное время люблю проектировать шрифты. Да, это необычное хобби, но оно реально прокачивает чувство
+          композиции и типографики, да и сам процесс разработки мне нравится<br><br>А еще я настоящий музыкальный
+          маньяк — слушаю все подряд, от джаза до электроники, и постоянно ищу что-то новое
         </p>
       </div>
     </div>
@@ -169,8 +178,10 @@
       </picture>
     </a>
   </footer>
+
   <script src="js/script.js"></script>
   <script src="js/typed.min.js"></script>
+
   <script>
     new Typed('#changing-word', {
       strings: ['интерфейсы', 'продукты', 'приложения', 'сервисы'],
@@ -183,7 +194,7 @@
     });
 
     new Typed('#changing-words', {
-      strings: ['Интерфейсы', 'Продукты', 'Приложения', 'Сервисы'],
+      strings: ['интерфейсы', 'продукты', 'приложения', 'сервисы'],
       typeSpeed: 40,
       backSpeed: 40,
       backDelay: 1400,

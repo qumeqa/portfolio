@@ -1,9 +1,10 @@
-document.querySelectorAll('.case').forEach(caseItem => {
-  const cover = caseItem.dataset.cover;
-  const company = caseItem.dataset.company;
-  const des = caseItem.dataset.des;
-  const href = caseItem.dataset.href;
-  caseItem.innerHTML = `
+if (document.body.dataset.page === 'main') {
+  document.querySelectorAll('.case').forEach(caseItem => {
+    const cover = caseItem.dataset.cover;
+    const company = caseItem.dataset.company;
+    const des = caseItem.dataset.des;
+    const href = caseItem.dataset.href;
+    caseItem.innerHTML = `
     <a href="${href}">
       <div class="img">
         <img src="${cover}" alt="Сайт">
@@ -15,108 +16,89 @@ document.querySelectorAll('.case').forEach(caseItem => {
       </a>
       <p class="g">${des}</p>
     </div>`;
-});
+  });
+}
 
-// Для всех ссылок с классом .off
+if (document.body.dataset.page === 'topurok') {
+  document.querySelectorAll('.case').forEach(caseItem => {
+    const cover = caseItem.dataset.cover;
+    const company = caseItem.dataset.company;
+    const href = caseItem.dataset.href;
+    caseItem.innerHTML = `
+    <a href="${href}">
+      <div class="img">
+        <img src="${cover}" alt="Сайт">
+      </div>
+    </a>
+    <div class="case-d">
+      <a href="${href}">
+        <h3>${company}</h3>
+      </a>
+    </div>`;
+  });
+}
+
 document.querySelectorAll('.off').forEach(link => {
-  link.addEventListener('click', function (event) {
-    event.preventDefault();
-    event.stopPropagation();
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
   });
 });
 
-// Функция для обновления активного пункта меню
 function updateActiveSection() {
   const sections = document.querySelectorAll('main > div[id], footer[id]');
   const menuLinks = document.querySelectorAll('.sections a');
-
-  // Получаем середину экрана
-  const middleOfScreen = window.scrollY + (window.innerHeight / 2);
+  const middleOfScreen = window.scrollY + window.innerHeight / 2;
 
   let currentSection = '';
-  let foundIntersection = false;
   let minDistance = Infinity;
-  let closestSection = '';
 
-  // Находим секцию, которая пересекает середину экрана
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
     const sectionBottom = sectionTop + sectionHeight;
-    const sectionMiddle = sectionTop + (sectionHeight / 2);
+    const sectionMiddle = sectionTop + sectionHeight / 2;
 
-    // Проверяем, что середина экрана находится внутри секции
     if (middleOfScreen >= sectionTop && middleOfScreen <= sectionBottom) {
-      currentSection = section.getAttribute('id');
-      foundIntersection = true;
+      currentSection = section.id;
     }
 
-    // На всякий случай запоминаем ближайшую секцию
     const distance = Math.abs(middleOfScreen - sectionMiddle);
     if (distance < minDistance) {
       minDistance = distance;
-      closestSection = section.getAttribute('id');
+      if (!currentSection) currentSection = section.id;
     }
   });
 
-  // Если ни одна секция не пересекает середину (мы в gap), используем ближайшую
-  if (!foundIntersection) {
-    currentSection = closestSection;
-  }
-
-  // Обновляем классы у ссылок меню
   menuLinks.forEach(link => {
-    const href = link.getAttribute('href').substring(1); // Убираем # из href
-
-    if (href === currentSection) {
-      // Текущая секция - оставляем черным (без класса .g)
-      link.classList.remove('g');
-    } else {
-      // Остальные - делаем серыми
-      link.classList.add('g');
-    }
+    const href = link.getAttribute('href').replace(' m-scroll', '').substring(1);
+    link.classList.toggle('g', href !== currentSection);
   });
 }
 
-// Обработка кликов по ссылкам меню
-const menuLinks = document.querySelectorAll('.sections a');
-menuLinks.forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault(); // Отменяем стандартное поведение
+document.querySelectorAll('.sections a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
 
-    const targetId = this.getAttribute('href').substring(1);
+    const href = link.getAttribute('href');
+    const hasMarginScroll = href.includes('m-scroll');
+    const targetId = href.replace(' m-scroll', '').substring(1);
     const targetSection = document.getElementById(targetId);
 
-    if (targetSection) {
-      // Если это контакты, скроллим в самый низ страницы
-      if (targetId === 'contacts') {
-        window.scrollTo({
-          top: document.documentElement.scrollHeight,
-          behavior: 'smooth'
-        });
-      } else {
-        // Получаем scroll-margin-top из CSS
-        const styles = window.getComputedStyle(targetSection);
-        const scrollMargin = parseFloat(styles.scrollMarginTop) || 0;
+    if (!targetSection) return;
 
-        // Вычисляем позицию с учетом scroll-margin-top
-        const sectionTop = targetSection.offsetTop;
+    const sectionTop = targetSection.offsetTop;
 
-        // Скроллим к началу секции минус scroll-margin
-        window.scrollTo({
-          top: sectionTop - scrollMargin,
-          behavior: 'smooth'
-        });
-      }
+    if (hasMarginScroll) {
+      const scrollMargin = parseFloat(getComputedStyle(targetSection).scrollMarginTop) || 0;
+      window.scrollTo({ top: sectionTop - scrollMargin, behavior: 'smooth' });
+    } else {
+      const scrollPosition = sectionTop - window.innerHeight / 2 + targetSection.offsetHeight / 2;
+      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
   });
 });
 
-// Вызываем функцию при скролле
 window.addEventListener('scroll', updateActiveSection);
-
-// Вызываем функцию при загрузке страницы
 window.addEventListener('load', updateActiveSection);
-
-// Также вызываем сразу на случай, если страница уже загружена
 updateActiveSection();

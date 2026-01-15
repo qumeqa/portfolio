@@ -1,0 +1,163 @@
+@media (hover: hover) {
+  .link:hover {
+    color: var(--text-d);
+  }
+
+  .btn.l:hover {
+    background: var(--btn-h);
+  }
+
+  .btn.d:hover {
+    background: var(--btn-dh);
+  }
+
+  .case:has(a:hover) img {
+    transform: scale(1.025);
+  }
+
+  .off:has(a:hover) img {
+    transform: scale(1);
+  }
+
+  .pswp__button--close:hover {
+    background: var(--btn-dh) !important;
+  }
+}
+
+@media (hover: none) {
+  .link:active {
+    color: var(--text-d);
+  }
+
+  .btn.l:active {
+    background: var(--btn-h);
+  }
+
+  .btn.d:active {
+    background: var(--btn-dh);
+  }
+
+  .case:has(a:active) img {
+    transform: scale(1.025);
+  }
+
+  .off:has(a:active) img {
+    transform: scale(1);
+  }
+
+  .pswp__button--close:active {
+    background: var(--btn-dh) !important;
+  }
+}
+
+@media screen and (max-width: 80rem) {
+  .sections {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  :root {
+    --10: 0.5rem;
+    --15: 0.75rem;
+    --20: 1rem;
+    --25: 1.25rem;
+    --30: 1.625rem;
+    --35: 1.875rem;
+    --40: 2.25rem;
+  }
+
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 3.25rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  main {
+    gap: 6.25rem;
+    padding-top: 5.625rem;
+  }
+
+  #problem,
+  #research,
+  #solution,
+  #results {
+    scroll-margin-top: 6.25rem;
+  }
+
+  .me {
+    width: 6.25rem;
+  }
+
+  .heading p {
+    width: auto;
+  }
+
+  .show {
+    display: none;
+  }
+
+  .hide {
+    display: block;
+  }
+
+  .cases {
+    gap: 3.5rem;
+  }
+
+  .steps {
+    padding-left: 0.125rem;
+  }
+
+  .number {
+    margin-top: 0.3125rem;
+    margin-right: 0.9375rem;
+    margin-left: 0.125rem;
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .skill {
+    padding: var(--20) var(--25);
+
+    &.tl {
+      border-top-left-radius: var(--20);
+      border-top-right-radius: var(--20);
+    }
+
+    &.tr,
+    &.bl {
+      border-radius: var(--10);
+    }
+
+    &.br {
+      border-bottom-right-radius: var(--20);
+      border-bottom-left-radius: var(--20);
+    }
+  }
+
+  .cases-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--40);
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  h1 {
+    font-size: clamp(3.4rem, 16vw, 4rem);
+  }
+}

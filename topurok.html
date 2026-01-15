@@ -11,8 +11,9 @@
 
   <link rel="preload" href="img/cases/1/2.png" as="image">
 
-  <link rel="stylesheet" href="style/normalize.css">
   <link rel="stylesheet" href="style/main.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/media.css">
   <link rel="stylesheet" href="style/photoswipe.min.css">
 
   <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
@@ -38,22 +39,21 @@
   </noscript>
 </head>
 
-<body>
+<body data-page="topurok">
   <header>
-    <a class="btn l" href="/main">На главную</a>
+    <a class="btn l" href="#" onclick="history.back(); return false;">На главную</a>
   </header>
 
   <div class="sections">
-    <a class="link" href="#problem">Проблема</a>
-    <a class="link" href="#research">Анализ</a>
-    <a class="link" href="#solution">Решение</a>
-    <a class="link" href="#results">Итоги</a>
-    <a class="link" href="#contacts">Контакты</a>
+    <a class="link" href="#task m-scroll">Задача</a>
+    <a class="link" href="#research m-scroll">Анализ</a>
+    <a class="link" href="#solution m-scroll">Решение</a>
+    <a class="link" href="#results m-scroll">Результаты</a>
+    <a class="link" href="#contacts">Конаткты</a>
   </div>
 
   <main>
-    <div class="case-block">
-
+    <!-- <div class="case-block">
       <div class="case-text">
         <h1>TopUrok</h1>
         <p>
@@ -61,19 +61,32 @@
           Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
         </p>
       </div>
+    </div> -->
 
-    </div>
-
-    <div class="case-block" id="problem">
+    <div class="case-block" id="task">
       <a href="img/cases/1/2.png" class="lightbox" data-pswp-width="900" data-pswp-height="675">
         <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
       </a>
       <div class="case-text">
-        <h2>Проблема</h2>
+        <h2>Задача</h2>
         <p>
           Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
           Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
         </p>
+        <p>
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+
+        <p>
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+        <p>
+          Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+          Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+        </p>
+
       </div>
     </div>
 
@@ -82,7 +95,7 @@
         <img class="case-img" src="img/cases/1/2.png" alt="Скрин">
       </a>
       <div class="case-text">
-        <h2>Исследование</h2>
+        <h2>Анализ</h2>
         <p>
           Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
           Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
@@ -119,8 +132,8 @@
     <div class="case-cases">
       <h2>Другие кейсы</h2>
       <div class="cases-grid" id="cases">
-        <div class="case off" data-cover="img/cases/2/1.jpg" data-company="TopUrok" data-href="/topurok.html"></div>
-        <div class="case off" data-cover="img/cases/3/1.jpg" data-company="Бодрит" data-href="/topurok.html"></div>
+        <div class="case off" data-cover="img/cases/2/1.jpg" data-company="Точка" data-href="/topurok.html"></div>
+        <div class="case off" data-cover="img/cases/3/1.jpg" data-company="VIVALUME" data-href="/topurok.html"></div>
       </div>
     </div>
   </main>
@@ -139,162 +152,14 @@
     </a>
   </footer>
 
-  <a class="btn d top" id="scrollToTop">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M11.3693 7.2251C11.762 6.90475 12.341 6.92734 12.7072 7.29346L19.7072 14.2935L18.2931 15.7075L12.0001 9.41455L5.70715 15.7075L4.29309 14.2935L11.2931 7.29346L11.3693 7.2251Z"
-        fill="var(--bg-l)" />
-    </svg>
-  </a>
+  <script src="js/script.js"></script>
 
-  <script>
-    // Для всех ссылок с классом .off
-    document.querySelectorAll('.off').forEach(link => {
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-      });
-    });
-
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-
-    // Показываем кнопку при скролле
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        scrollToTopBtn.classList.add('visible');
-      } else {
-        scrollToTopBtn.classList.remove('visible');
-      }
-    });
-
-    // Скролл вверх при клике
-    scrollToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    document.querySelectorAll('.case').forEach(caseItem => {
-      const cover = caseItem.dataset.cover;
-      const company = caseItem.dataset.company;
-      const des = caseItem.dataset.des;
-      const href = caseItem.dataset.href;
-      caseItem.innerHTML = `
-    <a href="${href}">
-      <div class="img">
-        <img src="${cover}" alt="Сайт">
-      </div>
-    </a>
-    <div class="case-d">
-      <a href="${href}">
-        <h3>${company}</h3>
-      </a>
-    </div>`;
-    });
-
-    // Функция для обновления активного пункта меню
-    function updateActiveSection() {
-      const sections = document.querySelectorAll('main > div[id], footer[id]');
-      const menuLinks = document.querySelectorAll('.sections a');
-
-      // Получаем середину экрана
-      const middleOfScreen = window.scrollY + (window.innerHeight / 2);
-
-      let currentSection = '';
-      let foundIntersection = false;
-      let minDistance = Infinity;
-      let closestSection = '';
-
-      // Находим секцию, которая пересекает середину экрана
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionBottom = sectionTop + sectionHeight;
-        const sectionMiddle = sectionTop + (sectionHeight / 2);
-
-        // Проверяем, что середина экрана находится внутри секции
-        if (middleOfScreen >= sectionTop && middleOfScreen <= sectionBottom) {
-          currentSection = section.getAttribute('id');
-          foundIntersection = true;
-        }
-
-        // На всякий случай запоминаем ближайшую секцию
-        const distance = Math.abs(middleOfScreen - sectionMiddle);
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestSection = section.getAttribute('id');
-        }
-      });
-
-      // Если ни одна секция не пересекает середину (мы в gap), используем ближайшую
-      if (!foundIntersection) {
-        currentSection = closestSection;
-      }
-
-      // Обновляем классы у ссылок меню
-      menuLinks.forEach(link => {
-        const href = link.getAttribute('href').substring(1); // Убираем # из href
-
-        if (href === currentSection) {
-          // Текущая секция - оставляем черным (без класса .g)
-          link.classList.remove('g');
-        } else {
-          // Остальные - делаем серыми
-          link.classList.add('g');
-        }
-      });
-    }
-
-    // Обработка кликов по ссылкам меню
-    const menuLinks = document.querySelectorAll('.sections a');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault(); // Отменяем стандартное поведение
-
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        if (targetSection) {
-          // Если это контакты, скроллим в самый низ страницы
-          if (targetId === 'contacts') {
-            window.scrollTo({
-              top: document.documentElement.scrollHeight,
-              behavior: 'smooth'
-            });
-          } else {
-            // Получаем scroll-margin-top из CSS
-            const styles = window.getComputedStyle(targetSection);
-            const scrollMargin = parseFloat(styles.scrollMarginTop) || 0;
-
-            // Вычисляем позицию с учетом scroll-margin-top
-            const sectionTop = targetSection.offsetTop;
-
-            // Скроллим к началу секции минус scroll-margin
-            window.scrollTo({
-              top: sectionTop - scrollMargin,
-              behavior: 'smooth'
-            });
-          }
-        }
-      });
-    });
-
-    // Вызываем функцию при скролле
-    window.addEventListener('scroll', updateActiveSection);
-
-    // Вызываем функцию при загрузке страницы
-    window.addEventListener('load', updateActiveSection);
-
-    // Также вызываем сразу на случай, если страница уже загружена
-    updateActiveSection();
-  </script>
   <script type="module">
     import PhotoSwipeLightbox from './js/photoswipe-lightbox.esm.min.js';
 
     const lightbox = new PhotoSwipeLightbox({
-      gallery: 'main', // Изменено с '#gallery' на 'main'
-      children: 'a.lightbox', // Только ссылки с атрибутом data-pswp-width
+      gallery: 'main',
+      children: 'a.lightbox',
       showHideAnimationType: 'zoom',
       wheelToZoom: true,
       mouseMovePan: true,
