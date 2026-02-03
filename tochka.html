@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио / Точка</title>
+
+    <link rel="preload" href="../fonts/VelaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../fonts/VelaSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/media.css">
+    <link rel="stylesheet" href="style/photoswipe.min.css">
+
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(101693695, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/101693695" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+</head>
+
+<body data-page="tochka">
+    <header>
+        <a class="btn l" href="main.html" onclick="if (document.referrer) { history.back(); return false; }">На главную</a>
+    </header>
+
+    <div class="sections">
+        <a class="link" href="#task m-scroll">Задача</a>
+        <a class="link" href="#research m-scroll">Анализ</a>
+        <a class="link" href="#scope m-scroll">Приоритизация</a>
+        <a class="link" href="#solution m-scroll">Решение</a>
+        <a class="link" href="#results m-scroll">Результаты</a>
+        <a class="link" href="#contacts">Конаткты</a>
+    </div>
+
+    <main>
+        <div class="case-block" id="task">
+            <a href="img/cases/2/2.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/2.png">
+            </a>
+            <div class="case-text">
+                <h2>Точка</h2>
+                <p>
+                    Сеть кофеен теряет выручку из-за очередей в час пик - клиенты уходят, не дождавшись заказа.
+                    Конкуренты переходят в диджитал и забирают аудиторию. Задача - создать MVP приложения для предзаказа с программой лояльности, чтобы удержать клиентскую базу и увеличить повторяемость покупок
+                </p>
+                <h3>Моя роль в проекте</h3>
+                <ul>
+                    <li>Анализ конкурентов, изучение потребностей пользователей и приоритизация функций</li>
+                    <li>Создание логики взаимодействия и сценариев использования приложения для различных этапов заказа
+                    </li>
+                    <li>Создание визуальных элементов и UI-компонентов</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-block" id="research">
+            <a href="img/cases/2/3.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/3.png">
+            </a>
+            <div class="case-text">
+                <h2>Анализ</h2>
+                <p>
+                    Изучил 5 приложений кофеен конкурентов: Stars Coffee, Costa Coffee, Дринкит, Coffee Like, ONE PRICE
+                    COFFEE. Ключевые находки:
+                </p>
+                <ul>
+                    <li>Более половины приложений не дают делать предзаказ - это критичная функция, без которой
+                        приложение теряет смысл для занятых людей</li>
+                    <li>Программа лояльности - стандарт рынка, её отсутствие = потеря конкурентоспособности</li>
+                    <li>Баннеры на главной вместо каталога блокируют доступ к товарам (Costa, ONE PRICE) - антипаттерн,
+                        который снижает конверсию в заказ</li>
+                    <li>Реферальные программы используют единицы - как возможность выделиться и привлечь больше клиентов
+                    </li>
+                </ul>
+                <h3>Интервью с клиентами</h3>
+                <p>
+                    Владелец кофейни предоставил данные опроса постоянных посетителей. Основные боли:
+                </p>
+                <ul>
+                    <li>Клиенты уходят, если очередь выглядит длинной</li>
+                    <li>Забывают физические карты лояльности дома</li>
+                    <li>Хотят заказывать заранее, но звонить неудобно</li>
+                </ul>
+                <p>Эти инсайты подтвердили направление на предзаказ и цифровую программу лояльности</p>
+            </div>
+        </div>
+
+        <div class="case-block" id="scope">
+            <a href="img/cases/2/4.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/4.png">
+            </a>
+            <div class="case-text">
+                <h2>Приоритизация</h2>
+                <p>
+                    На основе исследования и технических ограничений сделал приоритизацию функций:
+                </p>
+                <ul>
+                    <li>Must have: Каталог, корзина, оплата, статус заказа, выбор времени готовности, выбор кофейни</li>
+                    <li>Should have: История заказов, программа лояльности, реферальная программа</li>
+                    <li>Could have: Кастомизация напитков, промокоды</li>
+                </ul>
+                <p>
+                    Фокус на предзаказе и лояльности закрывает главные боли пользователей и бизнес-цели, оставляя
+                    пространство для итераций после запуска
+                </p>
+            </div>
+        </div>
+
+        <div class="case-block" id="solution">
+            <a href="img/cases/2/5.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/5.png">
+            </a>
+            <div class="case-text">
+                <h2>Решение</h2>
+                <h3>Главная страница</h3>
+                <p>
+                    Она спроектирована таким образом, чтобы давать быстрый доступ к самым важным страницам, не перегружая интерфейс большим количеством элементов:
+                </p>
+                <ul>
+                    <li>Сверху размещен поиск, выбор кофейни и профиль</li>
+                    <li>Карта лояльности с QR-кодом под шапкой стимулирует повторные покупки и решает проблему забытых
+                        карт</li>
+                    <li>Каталог занимает основное пространство и не блокируется баннерами. Навигация по категориям
+                        закреплена при скролле</li>
+                    <li>Снизу закреплена панель навигации с тремя главными разделами</li>
+                </ul>
+                <h3>Избранное</h3>
+                <p>
+                    Товары сгруппированы по общим категориям, чтобы страница занимала меньшую высоту, вследствие чего была более удобна для использования.
+                    Помимо этого при добавлении товара в избранное появляется бейдж, показывающий их количество
+                </p>
+            </div>
+        </div>
+
+        <div class="case-block">
+            <a href="img/cases/2/6.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/6.png">
+            </a>
+            <div class="case-text">
+                <h3>Страница товара</h3>
+                <p>
+                    Призвана показать товар и информацию о нем пользователю:
+                </p>
+                <ul>
+                    <li>Основное пространство занимает фотография</li>
+                    <li>Блоки выбора объема, описание и КБЖУ сгруппированы логически. При изменении объема значения меняются в реальном времени</li>
+                    <li>В самом низу закреплена кнопка добавления в корзину чтобы она была доступна всегда, независимо от
+                        длины страницы</li>
+                </ul>
+                <h3>Корзина</h3>
+                <p>
+                    Спроектирована так, чтобы давать доступ к самым важным функциям и информации:
+                </p>
+                <ul>
+                    <li>Наверху расположена навигация, выбор кофейни, чтобы пользователь точно знал куда будет заказывать, а также кнопка для удаления всех товаров</li>
+                    <li>В карточках товарах только самое важное: небольшое фото, название, вес/литраж, цена,
+                        а также блок для добавления и удаления этой же позиции с индикацией количества</li>
+                    <li>В самом низу закреплена кнопка с СТА и отображением всей стоимости товаров</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-block">
+            <a href="img/cases/2/7.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/7.png">
+            </a>
+            <div class="case-text">
+                <h3>Оформление заказа</h3>
+                <p>На этой странице собрана самая важная информация, необходимая для заказа:</p>
+                <ul>
+                    <li>Навигация и выбор кофейни сверху</li>
+                    <li>Дропдаун-списки для выбора времени выполнения заказа и способа оплаты</li>
+                    <li>Слайдер с выбором бонусов для списания, призванный мотивировать на повторные покупки, а также поле для ввода промокода</li>
+                    <li>В самом низу располагается изначальная сумма, а также детализация всех скидок и примененных промокодов</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-block">
+            <a href="img/cases/2/8.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/8.png">
+            </a>
+            <div class="case-text">
+                <h3>Статус заказа</h3>
+                <p>
+                    После заказа пользователя перекинет на главную страницу, на которой появится боттом-щит:
+                </p>
+                <ul>
+                    <li>В самом верху отображается индикация готовности. Как только полоска заполнится - значит заказ готов</li>
+                    <li>Помимо индикации есть заголовок, сигнализирующий о статусе заказа, и подзаголовок с примерным временем готовности</li>
+                    <li>Для более быстрого считывания номер заказа сделан большими цифрами</li>
+                    <li>В самом низу находятся кнопки для связи и просмотра деталей заказа</li>
+                </ul>
+                <p>
+                    Помимо боттом-щита, на главной странице под картой лояльности появится баннер со статусом и номером заказа. Все это призвано снизить тревогу пользователя за свой заказ
+                </p>
+            </div>
+        </div>
+
+        <div class="case-block">
+            <a href="img/cases/2/9.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/9.png">
+            </a>
+            <div class="case-text">
+                <h3>Выбор кофейни</h3>
+                <ul>
+                    <li>Основное пространство занимает фотография товара</li>
+                    <li>После фото идут блоки выбора объема, описание и КБЖУ сгруппированные логически</li>
+                    <li>В самом низу закреплена кнопка добавления в корзину которая будет доступна всегда независимо от
+                        длины страницы</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-block">
+            <a href="img/cases/2/10.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/10.png">
+            </a>
+            <div class="case-text">
+                <h3>Настройки профиля</h3>
+                <ul>
+                    <li>Основное пространство занимает фотография товара</li>
+                    <li>После фото идут блоки выбора объема, описание и КБЖУ сгруппированные логически</li>
+                    <li>В самом низу закреплена кнопка добавления в корзину которая будет доступна всегда независимо от
+                        длины страницы</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-block">
+            <a href="img/cases/2/11.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/11.png">
+            </a>
+            <div class="case-text">
+                <h3>Вход в аккаунт</h3>
+                <ul>
+                    <li>Основное пространство занимает фотография товара</li>
+                    <li>После фото идут блоки выбора объема, описание и КБЖУ сгруппированные логически</li>
+                    <li>В самом низу закреплена кнопка добавления в корзину которая будет доступна всегда независимо от
+                        длины страницы</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-block">
+            <a href="img/cases/2/12.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/12.png">
+            </a>
+            <div class="case-text">
+                <h3>Уведомления и история заказов</h3>
+                <ul>
+                    <li>Основное пространство занимает фотография товара</li>
+                    <li>После фото идут блоки выбора объема, описание и КБЖУ сгруппированные логически</li>
+                    <li>В самом низу закреплена кнопка добавления в корзину которая будет доступна всегда независимо от
+                        длины страницы</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-block" id="results">
+            <a href="img/cases/2/2.png" class="lightbox" data-pswp-width="1950" data-pswp-height="1500">
+                <img class="case-img" src="img/cases/2/2.png">
+            </a>
+            <div class="case-text">
+                <h2>Результаты</h2>
+                <p>
+                    Сайт репетитора для привлечения потенциальных клиентов — как для оффлайн-занятий в
+                    Кемерово, так и для онлайн-занятий по всей России, а также для продажи цифровых материалов
+                </p>
+                <ul>
+                    <li>Анализ конкурентов, изучение потребностей пользователей и приоритизация функций</li>
+                    <li>Создание логики взаимодействия и сценариев использования приложения для различных этапов заказа
+                    </li>
+                    <li>Создание визуальных элементов и UI-компонентов</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="case-cases">
+            <h2>Другие кейсы</h2>
+            <div class="cases-grid" id="cases">
+                <div class="case off" data-cover="img/cases/2/1.jpg" data-company="Точка" data-href="/topurok.html">
+                </div>
+                <div class="case off" data-cover="img/cases/3/1.jpg" data-company="VIVALUME" data-href="/topurok.html">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contacts">
+        <h1>Свяжитесь со мной!</h1>
+        <div class="links">
+            <a class="btn d" href="https://t.me/qumeqa" target="_blank">Telegram</a>
+            <a class="btn l" href="mailto:turbocapybara@gmail.com" target="_blank">Email</a>
+        </div>
+        <a href="https://github.com/qumeqa/portfolio" target="_blank">
+            <picture>
+                <source media="(max-width: 768px)" srcset="img/footer-s.svg">
+                <img src="img/footer.svg" alt="Фон">
+            </picture>
+        </a>
+    </footer>
+
+    <a class="btn d top show" id="scrollToTop">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M11.3693 7.2251C11.762 6.90475 12.341 6.92734 12.7072 7.29346L19.7072 14.2935L18.2931 15.7075L12.0001 9.41455L5.70715 15.7075L4.29309 14.2935L11.2931 7.29346L11.3693 7.2251Z"
+                fill="var(--bg-l)" />
+        </svg>
+    </a>
+
+    <script src="js/script.js" defer></script>
+
+    <script type="module">
+        import PhotoSwipeLightbox from '../js/photoswipe-lightbox.esm.min.js';
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallery: 'main',
+            children: 'a.lightbox',
+            showHideAnimationType: 'zoom',
+            wheelToZoom: true,
+            mouseMovePan: true,
+            padding: { top: 16, bottom: 16, left: 16, right: 16 },
+            pswpModule: () => import('./js/photoswipe.esm.min.js')
+        });
+
+        lightbox.on('afterInit', () => {
+            const closeBtn = document.querySelector('.pswp__button--close');
+            if (closeBtn) {
+                closeBtn.removeAttribute('aria-label');
+                closeBtn.removeAttribute('title');
+            }
+        });
+
+        lightbox.init();
+    </script>
+</body>
+
+</html>

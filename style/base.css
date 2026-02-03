@@ -31,7 +31,6 @@ header {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  width: 10.75rem;
   gap: var(--15);
   padding: var(--25) var(--30);
   corner-shape: var(--super);
@@ -57,8 +56,9 @@ header {
 #task,
 #research,
 #solution,
-#results {
-  scroll-margin-top: 20vh;
+#results,
+#scope {
+  scroll-margin-top: 18vh;
 }
 
 main {
@@ -256,7 +256,7 @@ main {
 .case-block {
   display: flex;
   flex-direction: column;
-  gap: var(--25);
+  gap: var(--30);
 
   a {
     cursor: url('/img/cursor/zoom.svg') 9 9, auto !important;
@@ -271,7 +271,14 @@ main {
 .case-text {
   display: flex;
   flex-direction: column;
-  gap: var(--20);
+  gap: var(--25);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--10);
+  padding-left: var(--25);
 }
 
 .case-cases {
@@ -296,8 +303,8 @@ main {
 .pswp__button--close {
   width: 3.75rem !important;
   height: 3.75rem !important;
-  margin-right: var(--20) !important;
-  margin-top: var(--20) !important;
+  margin-right: 1rem !important;
+  margin-top: 1rem !important;
   background: var(--btn-d) !important;
   corner-shape: var(--super);
   border-radius: var(--20);
@@ -331,8 +338,38 @@ main {
   cursor: url('/img/cursor/hover.svg'), auto !important;
 }
 
-.pswp__img {
+.pswp__container {
   cursor: url('/img/cursor/close.svg') 9 9, auto !important;
+}
+
+.pswp__img {
+  cursor: url('/img/cursor/zoom.svg') 9 9, auto !important;
+}
+
+.top {
+  position: fixed;
+  bottom: var(--20);
+  right: var(--20);
+  width: 3.75rem;
+  height: 3.75rem;
+  padding: 0;
+  corner-shape: var(--super);
+  border-radius: var(--20);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.625rem);
+  transition: var(--tr);
+  z-index: 1000;
+
+  svg {
+    flex: 0 0 auto;
+  }
+}
+
+.top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 footer {

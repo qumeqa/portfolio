@@ -95,7 +95,7 @@ a {
   text-decoration: none;
   color: var(--text-d);
   outline: none;
-  user-select: none;
+  /* user-select: none; */
 }
 
 img {
@@ -104,13 +104,13 @@ img {
   height: auto;
 }
 
-p,
+/* p,
 h1,
 h2,
 h3,
 img {
   user-select: none;
-}
+} */
 
 h1,
 h2 {
@@ -133,7 +133,7 @@ h1 {
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 3.75rem;
   font-weight: 500;
   line-height: 0.8;
   letter-spacing: -0.02em;

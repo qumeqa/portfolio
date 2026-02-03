@@ -1,10 +1,12 @@
-if (document.body.dataset.page === 'main') {
-  document.querySelectorAll('.case').forEach(caseItem => {
-    const cover = caseItem.dataset.cover;
-    const company = caseItem.dataset.company;
-    const des = caseItem.dataset.des;
-    const href = caseItem.dataset.href;
-    caseItem.innerHTML = `
+const page = document.body.dataset.page;
+
+if (page === "main") {
+    document.querySelectorAll(".case").forEach((caseItem) => {
+        const cover = caseItem.dataset.cover;
+        const company = caseItem.dataset.company;
+        const des = caseItem.dataset.des;
+        const href = caseItem.dataset.href;
+        caseItem.innerHTML = `
     <a href="${href}">
       <div class="img">
         <img src="${cover}" alt="Сайт">
@@ -16,15 +18,35 @@ if (document.body.dataset.page === 'main') {
       </a>
       <p class="g">${des}</p>
     </div>`;
-  });
+    });
+
+    new Typed("#changing-word", {
+        strings: ["интерфейсы", "продукты", "приложения", "сервисы"],
+        typeSpeed: 40,
+        backSpeed: 40,
+        backDelay: 1400,
+        loop: true,
+        showCursor: false,
+        smartBackspace: false,
+    });
+
+    new Typed("#changing-words", {
+        strings: ["интерфейсы", "продукты", "приложения", "сервисы"],
+        typeSpeed: 40,
+        backSpeed: 40,
+        backDelay: 1400,
+        loop: true,
+        showCursor: false,
+        smartBackspace: false,
+    });
 }
 
-if (document.body.dataset.page === 'topurok') {
-  document.querySelectorAll('.case').forEach(caseItem => {
-    const cover = caseItem.dataset.cover;
-    const company = caseItem.dataset.company;
-    const href = caseItem.dataset.href;
-    caseItem.innerHTML = `
+if (page === "topurok" || page === "tochka") {
+    document.querySelectorAll(".case").forEach((caseItem) => {
+        const cover = caseItem.dataset.cover;
+        const company = caseItem.dataset.company;
+        const href = caseItem.dataset.href;
+        caseItem.innerHTML = `
     <a href="${href}">
       <div class="img">
         <img src="${cover}" alt="Сайт">
@@ -35,70 +57,84 @@ if (document.body.dataset.page === 'topurok') {
         <h3>${company}</h3>
       </a>
     </div>`;
-  });
+    });
+
+    const scrollToTopBtn = document.getElementById("scrollToTop");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+            scrollToTopBtn.classList.add("visible");
+        } else {
+            scrollToTopBtn.classList.remove("visible");
+        }
+    });
+
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    });
 }
 
-document.querySelectorAll('.off').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    e.stopPropagation();
-  });
+document.querySelectorAll(".off").forEach((link) => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    });
 });
+
+let lastActiveSection = "";
 
 function updateActiveSection() {
-  const sections = document.querySelectorAll('main > div[id], footer[id]');
-  const menuLinks = document.querySelectorAll('.sections a');
-  const middleOfScreen = window.scrollY + window.innerHeight / 2;
+    const sections = document.querySelectorAll("main > div[id], footer[id]");
+    const menuLinks = document.querySelectorAll(".sections a");
+    const screenMiddle = window.scrollY + window.innerHeight / 2;
 
-  let currentSection = '';
-  let minDistance = Infinity;
+    // Блок становится активным, когда его верх уже выше середины экрана
+    sections.forEach((section) => {
+        if (section.offsetTop <= screenMiddle) {
+            lastActiveSection = section.id;
+        }
+    });
 
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    const sectionBottom = sectionTop + sectionHeight;
-    const sectionMiddle = sectionTop + sectionHeight / 2;
-
-    if (middleOfScreen >= sectionTop && middleOfScreen <= sectionBottom) {
-      currentSection = section.id;
-    }
-
-    const distance = Math.abs(middleOfScreen - sectionMiddle);
-    if (distance < minDistance) {
-      minDistance = distance;
-      if (!currentSection) currentSection = section.id;
-    }
-  });
-
-  menuLinks.forEach(link => {
-    const href = link.getAttribute('href').replace(' m-scroll', '').substring(1);
-    link.classList.toggle('g', href !== currentSection);
-  });
+    menuLinks.forEach((link) => {
+        const href = link
+            .getAttribute("href")
+            .replace(" m-scroll", "")
+            .substring(1);
+        link.classList.toggle("g", href !== lastActiveSection);
+    });
 }
 
-document.querySelectorAll('.sections a').forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
+document.querySelectorAll(".sections a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    const href = link.getAttribute('href');
-    const hasMarginScroll = href.includes('m-scroll');
-    const targetId = href.replace(' m-scroll', '').substring(1);
-    const targetSection = document.getElementById(targetId);
+        const href = link.getAttribute("href");
+        const targetId = href.replace(" m-scroll", "").substring(1);
+        const target = document.getElementById(targetId);
+        if (!target) return;
 
-    if (!targetSection) return;
+        let scrollTo;
 
-    const sectionTop = targetSection.offsetTop;
+        if (href.includes("m-scroll")) {
+            // Скролл на позицию с учётом scroll-margin-top из CSS
+            const scrollMargin =
+                parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+            scrollTo = target.offsetTop - scrollMargin;
+        } else {
+            // Центр блока в центр экрана
+            scrollTo =
+                target.offsetTop +
+                target.offsetHeight / 2 -
+                window.innerHeight / 2;
+        }
 
-    if (hasMarginScroll) {
-      const scrollMargin = parseFloat(getComputedStyle(targetSection).scrollMarginTop) || 0;
-      window.scrollTo({ top: sectionTop - scrollMargin, behavior: 'smooth' });
-    } else {
-      const scrollPosition = sectionTop - window.innerHeight / 2 + targetSection.offsetHeight / 2;
-      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
-    }
-  });
+        window.scrollTo({ top: scrollTo, behavior: "smooth" });
+    });
 });
 
-window.addEventListener('scroll', updateActiveSection);
-window.addEventListener('load', updateActiveSection);
+window.addEventListener("scroll", updateActiveSection);
+window.addEventListener("load", updateActiveSection);
 updateActiveSection();
