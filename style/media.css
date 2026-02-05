@@ -51,7 +51,7 @@
 }
 
 @media screen and (max-width: 80rem) {
-  .sections {
+  .sections-c {
     display: none;
   }
 }
@@ -95,7 +95,7 @@
     scroll-margin-top: 6.25rem;
   }
 
-  .me {
+  .icon {
     width: 6.25rem;
   }
 
@@ -114,6 +114,12 @@
   .cases {
     gap: 3.5rem;
   }
+
+    .case-d {
+      p {
+        font-size: 1.25rem;
+      }
+    }
 
   .steps {
     padding-left: 0.125rem;
@@ -154,6 +160,16 @@
     flex-direction: column;
     gap: var(--40);
   }
+
+    .copy-btn {
+      width: 3.375rem;
+      height: 3.375rem;
+      
+      .copy-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
 }
 
 @media screen and (max-width: 30rem) {

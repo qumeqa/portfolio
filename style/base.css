@@ -4,13 +4,19 @@ body {
   color: var(--text-dg);
   background: var(--bg-l);
 
-  font-family: Vela Sans, sans-serif;
+  font-family:
+    Vela Sans,
+    sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.25rem;
 
   .g {
     color: var(--text-g);
+  }
+
+  .lg {
+    color: var(--text-gl);
   }
 }
 
@@ -23,12 +29,19 @@ header {
   padding-bottom: 0;
 }
 
-.sections {
+.sections-c {
   z-index: 100;
   position: fixed;
   left: var(--20);
   top: 50%;
   transform: translateY(-50%);
+  width: 10.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--10);
+}
+
+.sections {
   display: flex;
   flex-direction: column;
   gap: var(--15);
@@ -43,7 +56,7 @@ header {
   transition: var(--tr);
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -0.625rem;
     left: -0.9375rem;
@@ -71,7 +84,7 @@ main {
   padding-top: 6.25rem;
 }
 
-.me {
+.icon {
   width: 7.5rem;
   height: auto;
   corner-shape: var(--super);
@@ -108,6 +121,12 @@ main {
     color: var(--text-l);
     background: var(--bg-d);
   }
+
+  &.back {
+    position: fixed;
+    top: var(--20);
+    left: var(--20);
+  }
 }
 
 .heading {
@@ -134,10 +153,28 @@ main {
   gap: 5rem;
 }
 
+.wip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: var(--20) var(--30);
+  background: var(--bg-l);
+  corner-shape: var(--super);
+  border-radius: var(--20);
+  z-index: 10;
+  display: none;
+  box-shadow: 0px 4px 20px 0px rgba(34, 60, 80, 0.1);
+}
+
 .case {
   display: flex;
   flex-direction: column;
   gap: var(--15);
+
+  .img {
+    position: relative;
+  }
 
   img {
     transition: var(--tr);
@@ -145,11 +182,17 @@ main {
 
   &.off {
     a {
-      cursor: url('/img/cursor/close.svg') 9 9, auto !important;
+      cursor:
+        url("/img/cursor/close.svg") 9 9,
+        auto !important;
 
       img {
         transition: initial;
       }
+    }
+
+    .wip {
+      display: initial !important;
     }
   }
 }
@@ -162,8 +205,12 @@ main {
 
 .case-d {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
+  align-items: center;
+  gap: var(--10);
+
+  p {
+    font-size: 1.5rem;
+  }
 }
 
 .block {
@@ -227,7 +274,7 @@ main {
 .skills {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--10);
+  gap: var(--5);
 }
 
 .skill {
@@ -259,7 +306,9 @@ main {
   gap: var(--30);
 
   a {
-    cursor: url('/img/cursor/zoom.svg') 9 9, auto !important;
+    cursor:
+      url("/img/cursor/zoom.svg") 9 9,
+      auto !important;
   }
 
   img {
@@ -272,6 +321,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--25);
+}
+
+.case-heading-d {
+  display: flex;
+  gap: var(--10);
 }
 
 ul {
@@ -335,15 +389,19 @@ ul {
 }
 
 .pswp__button {
-  cursor: url('/img/cursor/hover.svg'), auto !important;
+  cursor: url("/img/cursor/hover.svg"), auto !important;
 }
 
 .pswp__container {
-  cursor: url('/img/cursor/close.svg') 9 9, auto !important;
+  cursor:
+    url("/img/cursor/close.svg") 9 9,
+    auto !important;
 }
 
 .pswp__img {
-  cursor: url('/img/cursor/zoom.svg') 9 9, auto !important;
+  cursor:
+    url("/img/cursor/zoom.svg") 9 9,
+    auto !important;
 }
 
 .top {
@@ -360,10 +418,6 @@ ul {
   transform: translateY(0.625rem);
   transition: var(--tr);
   z-index: 1000;
-
-  svg {
-    flex: 0 0 auto;
-  }
 }
 
 .top.visible {
@@ -389,4 +443,72 @@ footer {
     width: max-content;
     position: relative;
   }
+}
+
+.email-c {
+  display: flex;
+  align-items: center;
+  gap: var(--5);
+}
+
+.email {
+  padding-left: calc(var(--30) + 2px);
+  border-top-right-radius: var(--10);
+  border-bottom-right-radius: var(--10);
+}
+
+.copy-btn {
+  width: 4.1875rem;
+  height: 4.1875rem;
+  padding-right: 2px;
+  background: var(--btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  corner-shape: var(--super);
+  border-radius: var(--20);
+  position: relative;
+  transition: 0.5s;
+  overflow: hidden;
+  will-change: transform;
+  border-top-left-radius: var(--10);
+  border-bottom-left-radius: var(--10);
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  /* перенести в media */
+  &:hover {
+    background: var(--btn-h);
+  }
+
+  &.copied {
+    pointer-events: none;
+
+    & .icon-copy {
+      opacity: 0;
+      transform: scale(0.5) rotate(90deg);
+    }
+
+    & .icon-check {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+}
+
+.copy-icon {
+  position: absolute;
+  transition: 0.6s cubic-bezier(0.7, -0.5, 0.3, 1.5);
+}
+
+.icon-copy {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.icon-check {
+  opacity: 0;
+  transform: scale(0.5) rotate(-75deg);
 }

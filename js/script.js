@@ -1,14 +1,24 @@
 const page = document.body.dataset.page;
 
-if (page === "main") {
-    document.querySelectorAll(".case").forEach((caseItem) => {
-        const cover = caseItem.dataset.cover;
-        const company = caseItem.dataset.company;
-        const des = caseItem.dataset.des;
-        const href = caseItem.dataset.href;
-        caseItem.innerHTML = `
+function renderCasesInContainer(container) {
+    const scope = container || document;
+    const namespace =
+        container?.getAttribute?.("data-barba-namespace") ||
+        document.body.dataset.page;
+    const cases = scope.querySelectorAll(".case");
+
+    if (namespace === "main") {
+        cases.forEach((caseItem) => {
+            const cover = caseItem.dataset.cover;
+            const company = caseItem.dataset.company;
+            const des = caseItem.dataset.des;
+            const href = caseItem.dataset.href;
+            caseItem.innerHTML = `
     <a href="${href}">
       <div class="img">
+        <div class="wip">
+            <p>Кейс в разработке</p>
+        </div>
         <img src="${cover}" alt="Сайт">
       </div>
     </a>
@@ -16,9 +26,35 @@ if (page === "main") {
       <a href="${href}">
         <h3>${company}</h3>
       </a>
+      <p class="lg">/</p>
       <p class="g">${des}</p>
     </div>`;
-    });
+        });
+    } else if (namespace === "topurok" || namespace === "tochka") {
+        cases.forEach((caseItem) => {
+            const cover = caseItem.dataset.cover;
+            const company = caseItem.dataset.company;
+            const href = caseItem.dataset.href;
+            caseItem.innerHTML = `
+    <a href="${href}">
+      <div class="img">
+        <div class="wip">
+            <p>Кейс в разработке</p>
+        </div>
+        <img src="${cover}" alt="Сайт">
+      </div>
+    </a>
+    <div class="case-d">
+      <a href="${href}">
+        <h3>${company}</h3>
+      </a>
+    </div>`;
+        });
+    }
+}
+
+if (page === "main") {
+    renderCasesInContainer();
 
     new Typed("#changing-word", {
         strings: ["интерфейсы", "продукты", "приложения", "сервисы"],
@@ -42,22 +78,7 @@ if (page === "main") {
 }
 
 if (page === "topurok" || page === "tochka") {
-    document.querySelectorAll(".case").forEach((caseItem) => {
-        const cover = caseItem.dataset.cover;
-        const company = caseItem.dataset.company;
-        const href = caseItem.dataset.href;
-        caseItem.innerHTML = `
-    <a href="${href}">
-      <div class="img">
-        <img src="${cover}" alt="Сайт">
-      </div>
-    </a>
-    <div class="case-d">
-      <a href="${href}">
-        <h3>${company}</h3>
-      </a>
-    </div>`;
-    });
+    renderCasesInContainer();
 
     const scrollToTopBtn = document.getElementById("scrollToTop");
 
@@ -84,6 +105,16 @@ document.querySelectorAll(".off").forEach((link) => {
     });
 });
 
+document.addEventListener(
+    "click",
+    (e) => {
+        if (e.target.closest("a.lightbox")) {
+            e.preventDefault();
+        }
+    },
+    true,
+);
+
 let lastActiveSection = "";
 
 function updateActiveSection() {
@@ -91,9 +122,10 @@ function updateActiveSection() {
     const menuLinks = document.querySelectorAll(".sections a");
     const screenMiddle = window.scrollY + window.innerHeight / 2;
 
-    // Блок становится активным, когда его верх уже выше середины экрана
+    lastActiveSection = "";
     sections.forEach((section) => {
-        if (section.offsetTop <= screenMiddle) {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        if (sectionTop <= screenMiddle) {
             lastActiveSection = section.id;
         }
     });
@@ -107,34 +139,51 @@ function updateActiveSection() {
     });
 }
 
-document.querySelectorAll(".sections a").forEach((link) => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
+document.addEventListener("click", (e) => {
+    const link = e.target.closest(".sections a");
+    if (!link) return;
 
-        const href = link.getAttribute("href");
-        const targetId = href.replace(" m-scroll", "").substring(1);
-        const target = document.getElementById(targetId);
-        if (!target) return;
+    const href = link.getAttribute("href");
 
-        let scrollTo;
+    if (href.includes(".html")) return;
 
-        if (href.includes("m-scroll")) {
-            // Скролл на позицию с учётом scroll-margin-top из CSS
-            const scrollMargin =
-                parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
-            scrollTo = target.offsetTop - scrollMargin;
-        } else {
-            // Центр блока в центр экрана
-            scrollTo =
-                target.offsetTop +
-                target.offsetHeight / 2 -
-                window.innerHeight / 2;
-        }
+    e.preventDefault();
 
-        window.scrollTo({ top: scrollTo, behavior: "smooth" });
+    const targetId = href.replace(" m-scroll", "").substring(1);
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const targetRect = target.getBoundingClientRect();
+    const targetTop = targetRect.top + window.scrollY;
+
+    let scrollTo;
+
+    if (href.includes("m-scroll")) {
+        const scrollMargin =
+            parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        scrollTo = targetTop - scrollMargin;
+    } else {
+        scrollTo = targetTop + target.offsetHeight / 2 - window.innerHeight / 2;
+    }
+
+    window.scrollTo({
+        top: scrollTo,
+        behavior: "smooth",
     });
 });
 
 window.addEventListener("scroll", updateActiveSection);
 window.addEventListener("load", updateActiveSection);
 updateActiveSection();
+
+function copyEmail() {
+    const email = "turbocapybara@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+        const btn = document.getElementById("copyButton");
+        btn.classList.add("copied");
+
+        setTimeout(() => {
+            btn.classList.remove("copied");
+        }, 2000);
+    });
+}

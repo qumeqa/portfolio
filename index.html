@@ -45,19 +45,21 @@
 
 <body data-page="main">
   <header>
-    <a href="https://github.com/qumeqa" target="_blank"><img class="me" src="img/me.jpg" alt="Мое фото"></a>
+    <a href="https://github.com/qumeqa" target="_blank"><img class="icon" src="img/me.jpg" alt="Мое фото"></a>
     <div class="links">
       <a class="btn l" href="https://t.me/qumeqa" target="_blank">Telegram</a>
       <a class="btn d" href="https://dprofile.ru/qumeqa/cv" target="_blank">CV</a>
     </div>
   </header>
 
+  <div class="sections-c">
   <div class="sections">
     <a class="link" href="#cases m-scroll">Кейсы</a>
     <a class="link" href="#experience">Мой опыт</a>
     <a class="link" href="#skills">Навыки</a>
     <a class="link" href="#about">Обо мне</a>
     <a class="link" href="#contacts">Контакты</a>
+  </div>
   </div>
 
   <main>
@@ -75,10 +77,10 @@
     </div>
 
     <div class="cases" id="cases">
-      <div class="case" data-cover="img/cases/1/1.jpg" data-company="TopUrok" data-des="Сайт для репетитора"
-        data-href="/topurok.html"></div>
       <div class="case" data-cover="img/cases/2/1.jpg" data-company="Точка" data-des="Приложение для кофейни"
         data-href="/tochka.html"></div>
+      <div class="case off" data-cover="img/cases/1/1.jpg" data-company="TopUrok" data-des="Сайт для репетитора"
+        data-href="/topurok.html"></div>
       <div class="case off" data-cover="img/cases/3/1.jpg" data-company="VIVALUME" data-des="Сайт для фотожурнала"
         data-href="/topurok.html"></div>
       <div class="case off" data-cover="img/cases/4/1.jpg" data-company="Like Me" data-des="Сайт для салона красоты"
@@ -99,7 +101,7 @@
           </div>
         </div>
 
-        <div class="step">
+        <!-- <div class="step">
           <div class="number"></div>
           <div class="info">
             <h3>Атвинта, UI дизайнер (стажер)</h3>
@@ -108,12 +110,12 @@
             </p>
             <p class="g">2025</p>
           </div>
-        </div>
+        </div> -->
 
         <div class="step">
           <div class="number"></div>
           <div class="info">
-            <h3>Waynut, UI/UX дизайнер</h3>
+            <h3>Waynut, Веб-дизайнер</h3>
             <p>Проектировал интерфейсы, проводил UX-исследования, верстал
               сайты и делал графику для соцсетей
             </p>
@@ -157,7 +159,7 @@
       <h2>Обо мне</h2>
       <div class="text-c">
         <p>
-          В свободное время люблю проектировать шрифты. Да, это необычное хобби, но оно реально прокачивает чувство
+          В свободное время люблю проектировать шрифты. Да, это необычное хобби, но оно хорошо прокачивает чувство
           композиции и типографики, да и сам процесс разработки мне нравится<br><br>А еще я настоящий музыкальный
           маньяк — слушаю все подряд, от джаза до электроники, и постоянно ищу что-то новое
         </p>
@@ -166,10 +168,21 @@
   </main>
 
   <footer id="contacts">
-    <h1>Свяжитесь со мной!</h1>
+    <h1>Связаться со мной:</h1>
     <div class="links">
       <a class="btn d" href="https://t.me/qumeqa" target="_blank">Telegram</a>
-      <a class="btn l" href="mailto:turbocapybara@gmail.com" target="_blank">Email</a>
+      <div class="email-c">
+                <a class="btn l email" href="mailto:turbocapybara@gmail.com" target="_blank">Email</a>
+                <a class="copy-btn" onclick="copyEmail()" id="copyButton">
+                    <svg class="copy-icon icon-copy" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="9" width="12" height="12" rx="1" stroke="var(--bg-d)" stroke-width="2"/>
+                        <path d="M15 15H20C20.5523 15 21 14.5523 21 14V4C21 3.44772 20.5523 3 20 3H10C9.44772 3 9 3.44772 9 4V9" stroke="var(--bg-d)" stroke-width="2"/>
+                    </svg>
+                    <svg class="copy-icon icon-check" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9.33333 17L4 11.5" stroke="var(--bg-d)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
     </div>
     <a href="https://github.com/qumeqa" target="_blank">
       <picture>
